@@ -41,28 +41,34 @@ class _TodoPageState extends State<TodoPage> {
     });
   }
 
+  void _removeAllTodos() {
+    setState(() {
+      _todos.clear();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('To-Do App')),
+      appBar: AppBar(title: const Text('Your To-Do App')),
       body: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.all(8),
+            padding: const EdgeInsets.all(20),
             child: Row(
               children: [
                 Expanded(
                   child: TextField(
                     controller: _controller,
                     decoration: const InputDecoration(
-                      hintText: 'Enter a task',
+                      hintText: 'What do you need to do today?',
                     ),
                   ),
                 ),
                 IconButton(
                   icon: const Icon(Icons.add),
                   onPressed: _addTodo,
-                )
+                ),
               ],
             ),
           ),
@@ -82,6 +88,19 @@ class _TodoPageState extends State<TodoPage> {
           ),
         ],
       ),
-    );
+      bottomNavigationBar: GestureDetector(
+        onTap: _removeAllTodos,
+        child: Container(
+          height: 120,
+          color: Colors.black87,
+          alignment: Alignment.topCenter,
+          padding: const EdgeInsets.all(20),
+          child: const Text(
+            'Delete all tasks',
+            style: TextStyle(color: Colors.white, fontWeight: FontWeight.w900),
+        ),   
+      ),
+    ),
+  );
   }
 }
