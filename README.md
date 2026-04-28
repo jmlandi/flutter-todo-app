@@ -1,17 +1,40 @@
-# todo_app
+# Your To-Do App
 
-A new Flutter project.
+## What This App Does?
+This is a To-Do app. You can create, update, delete and read all of your tasks locally in your mobile phone.
 
-## Getting Started
+## App Conventions
+This section presents how the app is being structured and conventions to follow.
 
-This project is a starting point for a Flutter application.
+### Folder Structure
+- `lib/`: The core application folder.
+    - `main.dart`: Entry point.
+    - `app/`: Global configurations, routing and theme.
+    - `core/`: Shared components, contants, error handling, and utils.
+    - `features`: Feature-based folders.
+        - `feature_name`: A logic name related to the feature.
+            - `data/`: Repositories and models.
+            - `logic/`: State management.
+            - `presentation`: Screen and widgets.
 
-A few resources to get you started if this is your first Flutter project:
+### Key Naming Conventions
+- *Folders and Files*: `snake_case`
+- *Classes and Enums*: `PascalCase`
+- *Variables and Methods*: `camelCase`
+- *Contants*: `camelCase` or `UPPER_SNAKE_CASE` 
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+### Best Practices
+- *Keep `main.dart` clean*: Use it only for initialization.
+- *Avoid Deep Nesting*: Limit nesting to keep path simple.
+- *Use Barrel Files (`index.dart`)*: Use export statements to simplify imports.
+- *Assets*: Put images, fonts, and JSON files in an `assets` folder at the root directory.
+- *Tests*: Replicate the `lib` structure within the `test` folder.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## External Providers
+
+### Amplitude
+- *Analytics*: Flutter SDK related to Amplitude Analytics. 
+- *Session Replay*: Flutter SDK related to Amplitude Session Replay.
+
+### Braze
+- *Mobile SDK*: Responsible for all Braze integrations.
